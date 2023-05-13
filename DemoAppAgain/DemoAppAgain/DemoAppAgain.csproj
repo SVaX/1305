@@ -5,6 +5,306 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\Попрыженок.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\agent_1.png" />
+    <None Remove="Resources\agent_10.png" />
+    <None Remove="Resources\agent_100.png" />
+    <None Remove="Resources\agent_101.png" />
+    <None Remove="Resources\agent_102.png" />
+    <None Remove="Resources\agent_103.png" />
+    <None Remove="Resources\agent_104.png" />
+    <None Remove="Resources\agent_105.png" />
+    <None Remove="Resources\agent_106.png" />
+    <None Remove="Resources\agent_107.png" />
+    <None Remove="Resources\agent_108.png" />
+    <None Remove="Resources\agent_109.png" />
+    <None Remove="Resources\agent_11.png" />
+    <None Remove="Resources\agent_110.png" />
+    <None Remove="Resources\agent_111.png" />
+    <None Remove="Resources\agent_112.png" />
+    <None Remove="Resources\agent_113.png" />
+    <None Remove="Resources\agent_114.png" />
+    <None Remove="Resources\agent_115.png" />
+    <None Remove="Resources\agent_116.png" />
+    <None Remove="Resources\agent_117.png" />
+    <None Remove="Resources\agent_118.png" />
+    <None Remove="Resources\agent_119.png" />
+    <None Remove="Resources\agent_12.png" />
+    <None Remove="Resources\agent_120.png" />
+    <None Remove="Resources\agent_121.png" />
+    <None Remove="Resources\agent_122.png" />
+    <None Remove="Resources\agent_123.png" />
+    <None Remove="Resources\agent_124.png" />
+    <None Remove="Resources\agent_125.png" />
+    <None Remove="Resources\agent_126.png" />
+    <None Remove="Resources\agent_127.png" />
+    <None Remove="Resources\agent_128.png" />
+    <None Remove="Resources\agent_129.png" />
+    <None Remove="Resources\agent_13.png" />
+    <None Remove="Resources\agent_130.png" />
+    <None Remove="Resources\agent_14.png" />
+    <None Remove="Resources\agent_15.png" />
+    <None Remove="Resources\agent_16.png" />
+    <None Remove="Resources\agent_17.png" />
+    <None Remove="Resources\agent_18.png" />
+    <None Remove="Resources\agent_19.png" />
+    <None Remove="Resources\agent_2.png" />
+    <None Remove="Resources\agent_20.png" />
+    <None Remove="Resources\agent_21.png" />
+    <None Remove="Resources\agent_22.png" />
+    <None Remove="Resources\agent_23.png" />
+    <None Remove="Resources\agent_24.png" />
+    <None Remove="Resources\agent_25.png" />
+    <None Remove="Resources\agent_26.png" />
+    <None Remove="Resources\agent_27.png" />
+    <None Remove="Resources\agent_28.png" />
+    <None Remove="Resources\agent_29.png" />
+    <None Remove="Resources\agent_3.png" />
+    <None Remove="Resources\agent_30.png" />
+    <None Remove="Resources\agent_31.png" />
+    <None Remove="Resources\agent_32.png" />
+    <None Remove="Resources\agent_33.png" />
+    <None Remove="Resources\agent_34.png" />
+    <None Remove="Resources\agent_35.png" />
+    <None Remove="Resources\agent_36.png" />
+    <None Remove="Resources\agent_37.png" />
+    <None Remove="Resources\agent_38.png" />
+    <None Remove="Resources\agent_39.png" />
+    <None Remove="Resources\agent_4.png" />
+    <None Remove="Resources\agent_40.png" />
+    <None Remove="Resources\agent_41.png" />
+    <None Remove="Resources\agent_42.png" />
+    <None Remove="Resources\agent_43.png" />
+    <None Remove="Resources\agent_44.png" />
+    <None Remove="Resources\agent_45.png" />
+    <None Remove="Resources\agent_46.png" />
+    <None Remove="Resources\agent_47.png" />
+    <None Remove="Resources\agent_48.png" />
+    <None Remove="Resources\agent_49.png" />
+    <None Remove="Resources\agent_5.png" />
+    <None Remove="Resources\agent_50.png" />
+    <None Remove="Resources\agent_51.png" />
+    <None Remove="Resources\agent_52.png" />
+    <None Remove="Resources\agent_53.png" />
+    <None Remove="Resources\agent_54.png" />
+    <None Remove="Resources\agent_55.png" />
+    <None Remove="Resources\agent_56.png" />
+    <None Remove="Resources\agent_57.png" />
+    <None Remove="Resources\agent_58.png" />
+    <None Remove="Resources\agent_59.png" />
+    <None Remove="Resources\agent_6.png" />
+    <None Remove="Resources\agent_60.png" />
+    <None Remove="Resources\agent_61.png" />
+    <None Remove="Resources\agent_62.png" />
+    <None Remove="Resources\agent_63.png" />
+    <None Remove="Resources\agent_64.png" />
+    <None Remove="Resources\agent_65.png" />
+    <None Remove="Resources\agent_66.png" />
+    <None Remove="Resources\agent_67.png" />
+    <None Remove="Resources\agent_68.png" />
+    <None Remove="Resources\agent_69.png" />
+    <None Remove="Resources\agent_7.png" />
+    <None Remove="Resources\agent_70.png" />
+    <None Remove="Resources\agent_71.png" />
+    <None Remove="Resources\agent_72.png" />
+    <None Remove="Resources\agent_73.png" />
+    <None Remove="Resources\agent_74.png" />
+    <None Remove="Resources\agent_75.png" />
+    <None Remove="Resources\agent_76.png" />
+    <None Remove="Resources\agent_77.png" />
+    <None Remove="Resources\agent_78.png" />
+    <None Remove="Resources\agent_79.png" />
+    <None Remove="Resources\agent_8.png" />
+    <None Remove="Resources\agent_80.png" />
+    <None Remove="Resources\agent_81.png" />
+    <None Remove="Resources\agent_82.png" />
+    <None Remove="Resources\agent_83.png" />
+    <None Remove="Resources\agent_84.png" />
+    <None Remove="Resources\agent_85.png" />
+    <None Remove="Resources\agent_86.png" />
+    <None Remove="Resources\agent_87.png" />
+    <None Remove="Resources\agent_88.png" />
+    <None Remove="Resources\agent_89.png" />
+    <None Remove="Resources\agent_9.png" />
+    <None Remove="Resources\agent_90.png" />
+    <None Remove="Resources\agent_91.png" />
+    <None Remove="Resources\agent_92.png" />
+    <None Remove="Resources\agent_93.png" />
+    <None Remove="Resources\agent_94.png" />
+    <None Remove="Resources\agent_95.png" />
+    <None Remove="Resources\agent_96.png" />
+    <None Remove="Resources\agent_97.png" />
+    <None Remove="Resources\agent_98.png" />
+    <None Remove="Resources\agent_99.png" />
+    <None Remove="Resources\picture.png" />
+    <None Remove="Resources\Попрыженок.ico" />
+    <None Remove="Resources\Попрыженок.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Попрыженок.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\agent_1.png" />
+    <Resource Include="Resources\agent_10.png" />
+    <Resource Include="Resources\agent_100.png" />
+    <Resource Include="Resources\agent_101.png" />
+    <Resource Include="Resources\agent_102.png" />
+    <Resource Include="Resources\agent_103.png" />
+    <Resource Include="Resources\agent_104.png" />
+    <Resource Include="Resources\agent_105.png" />
+    <Resource Include="Resources\agent_106.png" />
+    <Resource Include="Resources\agent_107.png" />
+    <Resource Include="Resources\agent_108.png" />
+    <Resource Include="Resources\agent_109.png" />
+    <Resource Include="Resources\agent_11.png" />
+    <Resource Include="Resources\agent_110.png" />
+    <Resource Include="Resources\agent_111.png" />
+    <Resource Include="Resources\agent_112.png" />
+    <Resource Include="Resources\agent_113.png" />
+    <Resource Include="Resources\agent_114.png" />
+    <Resource Include="Resources\agent_115.png" />
+    <Resource Include="Resources\agent_116.png" />
+    <Resource Include="Resources\agent_117.png" />
+    <Resource Include="Resources\agent_118.png" />
+    <Resource Include="Resources\agent_119.png" />
+    <Resource Include="Resources\agent_12.png" />
+    <Resource Include="Resources\agent_120.png" />
+    <Resource Include="Resources\agent_121.png" />
+    <Resource Include="Resources\agent_122.png" />
+    <Resource Include="Resources\agent_123.png" />
+    <Resource Include="Resources\agent_124.png" />
+    <Resource Include="Resources\agent_125.png" />
+    <Resource Include="Resources\agent_126.png" />
+    <Resource Include="Resources\agent_127.png" />
+    <Resource Include="Resources\agent_128.png" />
+    <Resource Include="Resources\agent_129.png" />
+    <Resource Include="Resources\agent_13.png" />
+    <Resource Include="Resources\agent_130.png" />
+    <Resource Include="Resources\agent_14.png" />
+    <Resource Include="Resources\agent_15.png" />
+    <Resource Include="Resources\agent_16.png" />
+    <Resource Include="Resources\agent_17.png" />
+    <Resource Include="Resources\agent_18.png" />
+    <Resource Include="Resources\agent_19.png" />
+    <Resource Include="Resources\agent_2.png" />
+    <Resource Include="Resources\agent_20.png" />
+    <Resource Include="Resources\agent_21.png" />
+    <Resource Include="Resources\agent_22.png" />
+    <Resource Include="Resources\agent_23.png" />
+    <Resource Include="Resources\agent_24.png" />
+    <Resource Include="Resources\agent_25.png" />
+    <Resource Include="Resources\agent_26.png" />
+    <Resource Include="Resources\agent_27.png" />
+    <Resource Include="Resources\agent_28.png" />
+    <Resource Include="Resources\agent_29.png" />
+    <Resource Include="Resources\agent_3.png" />
+    <Resource Include="Resources\agent_30.png" />
+    <Resource Include="Resources\agent_31.png" />
+    <Resource Include="Resources\agent_32.png" />
+    <Resource Include="Resources\agent_33.png" />
+    <Resource Include="Resources\agent_34.png" />
+    <Resource Include="Resources\agent_35.png" />
+    <Resource Include="Resources\agent_36.png" />
+    <Resource Include="Resources\agent_37.png" />
+    <Resource Include="Resources\agent_38.png" />
+    <Resource Include="Resources\agent_39.png" />
+    <Resource Include="Resources\agent_4.png" />
+    <Resource Include="Resources\agent_40.png" />
+    <Resource Include="Resources\agent_41.png" />
+    <Resource Include="Resources\agent_42.png" />
+    <Resource Include="Resources\agent_43.png" />
+    <Resource Include="Resources\agent_44.png" />
+    <Resource Include="Resources\agent_45.png" />
+    <Resource Include="Resources\agent_46.png" />
+    <Resource Include="Resources\agent_47.png" />
+    <Resource Include="Resources\agent_48.png" />
+    <Resource Include="Resources\agent_49.png" />
+    <Resource Include="Resources\agent_5.png" />
+    <Resource Include="Resources\agent_50.png" />
+    <Resource Include="Resources\agent_51.png" />
+    <Resource Include="Resources\agent_52.png" />
+    <Resource Include="Resources\agent_53.png" />
+    <Resource Include="Resources\agent_54.png" />
+    <Resource Include="Resources\agent_55.png" />
+    <Resource Include="Resources\agent_56.png" />
+    <Resource Include="Resources\agent_57.png" />
+    <Resource Include="Resources\agent_58.png" />
+    <Resource Include="Resources\agent_59.png" />
+    <Resource Include="Resources\agent_6.png" />
+    <Resource Include="Resources\agent_60.png" />
+    <Resource Include="Resources\agent_61.png" />
+    <Resource Include="Resources\agent_62.png" />
+    <Resource Include="Resources\agent_63.png" />
+    <Resource Include="Resources\agent_64.png" />
+    <Resource Include="Resources\agent_65.png" />
+    <Resource Include="Resources\agent_66.png" />
+    <Resource Include="Resources\agent_67.png" />
+    <Resource Include="Resources\agent_68.png" />
+    <Resource Include="Resources\agent_69.png" />
+    <Resource Include="Resources\agent_7.png" />
+    <Resource Include="Resources\agent_70.png" />
+    <Resource Include="Resources\agent_71.png" />
+    <Resource Include="Resources\agent_72.png" />
+    <Resource Include="Resources\agent_73.png" />
+    <Resource Include="Resources\agent_74.png" />
+    <Resource Include="Resources\agent_75.png" />
+    <Resource Include="Resources\agent_76.png" />
+    <Resource Include="Resources\agent_77.png" />
+    <Resource Include="Resources\agent_78.png" />
+    <Resource Include="Resources\agent_79.png" />
+    <Resource Include="Resources\agent_8.png" />
+    <Resource Include="Resources\agent_80.png" />
+    <Resource Include="Resources\agent_81.png" />
+    <Resource Include="Resources\agent_82.png" />
+    <Resource Include="Resources\agent_83.png" />
+    <Resource Include="Resources\agent_84.png" />
+    <Resource Include="Resources\agent_85.png" />
+    <Resource Include="Resources\agent_86.png" />
+    <Resource Include="Resources\agent_87.png" />
+    <Resource Include="Resources\agent_88.png" />
+    <Resource Include="Resources\agent_89.png" />
+    <Resource Include="Resources\agent_9.png" />
+    <Resource Include="Resources\agent_90.png" />
+    <Resource Include="Resources\agent_91.png" />
+    <Resource Include="Resources\agent_92.png" />
+    <Resource Include="Resources\agent_93.png" />
+    <Resource Include="Resources\agent_94.png" />
+    <Resource Include="Resources\agent_95.png" />
+    <Resource Include="Resources\agent_96.png" />
+    <Resource Include="Resources\agent_97.png" />
+    <Resource Include="Resources\agent_98.png" />
+    <Resource Include="Resources\agent_99.png" />
+    <Resource Include="Resources\picture.png" />
+    <Resource Include="Resources\Попрыженок.ico" />
+    <Resource Include="Resources\Попрыженок.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

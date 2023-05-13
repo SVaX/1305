@@ -5,13 +5,14 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using DemoAppAgain.Models;
 
 namespace DemoAppAgain
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
-	public partial class App : Application
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : System.Windows.Application
 	{
 	}
 }

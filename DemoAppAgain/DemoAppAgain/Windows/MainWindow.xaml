@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoAppAgain"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Агенты" MinHeight="450" MinWidth="800">
+	<Window.Resources>
+		<BitmapImage x:Key="nullImage" UriSource="/Resources/picture.png"/>
+	</Window.Resources>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="8*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
 
-    </Grid>
+		<ComboBox x:Name="discountFilterComboBox" Grid.Row="0" Grid.Column="1"/>
+		<ComboBox x:Name="costFilterComboBox" Grid.Row="0" Grid.Column="2"/>
+
+		<TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="3"/>
+
+		<Button x:Name="addButton" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Hidden"/>
+
+		<Label x:Name="recordAmountLabel" Grid.Row="0" Grid.Column="4"/>
+
+		<ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="Black" BorderThickness="1">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="3*"/>
+								<ColumnDefinition Width="6*"/>
+								<ColumnDefinition Width="2*"/>
+							</Grid.ColumnDefinitions>
+
+							<Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+								<Image Source="{Binding Path=Logo, FallbackValue={StaticResource nullImage}}"/>
+							</Border>
+
+							<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="2*"/>
+										<RowDefinition Height="2*"/>
+										<RowDefinition Height="2*"/>
+										<RowDefinition Height="2*"/>
+									</Grid.RowDefinitions>
+									<Label Grid.Row="0" Content="{Binding CompanyType.CompanyTypeId}"/>
+									<Label Grid.Row="0" Content="{Binding Name}"/>
+									<Label Grid.Row="1" Content="{Binding TotalImplementation}" />
+									<Label Grid.Row="2" Content="{Binding Phone}"/>
+									<Label Grid.Row="3" Content="{Binding Priority}"/>
+								</Grid>
+							</Border>
+
+							<Border Grid.RowSpan="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+								<Label x:Name="discontAmountLabel"/>
+							</Border>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
 </Window>
