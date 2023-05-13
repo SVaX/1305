@@ -1,5 +1,4 @@
-﻿using DemoAppAgain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +23,12 @@ namespace DemoAppAgain
 		public MainWindow()
 		{
 			InitializeComponent();
-			var db = new DemoAppDbContext();
+			var db = new DemoAgainDbContext();
+			foreach (var ag in db.Agents)
+			{
+				ag.Logo = ag.Logo.Replace("\\agents\\", "");
+				ag.Logo = $"/Resources/{ag.Logo}";
+			}
 			agentsList.ItemsSource = db.Agents.ToList();
 		}
 	}

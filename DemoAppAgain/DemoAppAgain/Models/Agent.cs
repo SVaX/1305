@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DemoAppAgain.Models;
+namespace DemoAppAgain;
 
 public partial class Agent
 {
@@ -28,6 +28,10 @@ public partial class Agent
     public double? TotalImplementation { get; set; }
 
     public int CompanyTypeId { get; set; }
+
+    public int? SaleQuantity { get; set; }
+
+    public int? Sale { get; set; }
 
     public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
 

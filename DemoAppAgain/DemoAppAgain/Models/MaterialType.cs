@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DemoAppAgain.Models;
+namespace DemoAppAgain;
 
 public partial class MaterialType
 {

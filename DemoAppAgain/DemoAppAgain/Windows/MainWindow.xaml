@@ -4,13 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoAppAgain"
+        xmlns:converter="clr-namespace:DemoAppAgain.Models;assembly="
         mc:Ignorable="d"
         Title="Агенты" MinHeight="450" MinWidth="800">
-	<Window.Resources>
-		<BitmapImage x:Key="nullImage" UriSource="/Resources/picture.png"/>
-	</Window.Resources>
-	
-	<Grid>
+    <Window.Resources>
+        <converter:CutOffConverter x:Key="DiscountConverter" Cutoff="25"/>
+        <Style TargetType="Border" x:Key="mainBorder">
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Sale, Converter={StaticResource DiscountConverter}}">
+                    <DataTrigger.Value>true</DataTrigger.Value>
+                    <Setter Property="Background" Value="#7fff00"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <BitmapImage x:Key="nullImage" UriSource="/Resources/picture.png"/>
+    </Window.Resources>
+
+    <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
 			<RowDefinition Height="8*"/>
@@ -25,19 +36,17 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 
-		<ComboBox x:Name="discountFilterComboBox" Grid.Row="0" Grid.Column="1"/>
-		<ComboBox x:Name="costFilterComboBox" Grid.Row="0" Grid.Column="2"/>
+		<ComboBox x:Name="agentSortComboBox" Grid.Row="0" Grid.Column="3"/>
+		<ComboBox x:Name="agentTypeFilterComboBox" Grid.Row="0" Grid.Column="2"/>
 
-		<TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="3"/>
+		<TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-		<Button x:Name="addButton" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Hidden"/>
+        <Button x:Name="addButton" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Hidden"/>
 
-		<Label x:Name="recordAmountLabel" Grid.Row="0" Grid.Column="4"/>
-
-		<ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
-			<ListView.ItemTemplate>
-				<DataTemplate>
-					<Border BorderBrush="Black" BorderThickness="1">
+        <ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" d:ItemsSource="{d:SampleData}" SelectionMode="Extended">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+					<Border BorderBrush="Black" BorderThickness="1" Style="{StaticResource mainBorder}">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="3*"/>
@@ -45,7 +54,7 @@
 								<ColumnDefinition Width="2*"/>
 							</Grid.ColumnDefinitions>
 
-							<Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+							<Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" MaxHeight="125">
 								<Image Source="{Binding Path=Logo, FallbackValue={StaticResource nullImage}}"/>
 							</Border>
 
@@ -57,17 +66,18 @@
 										<RowDefinition Height="2*"/>
 										<RowDefinition Height="2*"/>
 									</Grid.RowDefinitions>
-									<Label Grid.Row="0" Content="{Binding CompanyType.CompanyTypeId}"/>
+									<Label Grid.Row="0" HorizontalContentAlignment="Left" Content="{Binding CompanyType.CompanyTypeId}"/>
 									<Label Grid.Row="0" Content="{Binding Name}"/>
-									<Label Grid.Row="1" Content="{Binding TotalImplementation}" />
-									<Label Grid.Row="2" Content="{Binding Phone}"/>
-									<Label Grid.Row="3" Content="{Binding Priority}"/>
+                                    <Label Grid.Row="1"  HorizontalContentAlignment="Left"  Content="{Binding TotalImplementation}" />
+                                    <Label Grid.Row="2"  HorizontalContentAlignment="Left"  Content="{Binding Phone}"/>
+                                    <Label Grid.Row="3" Content="Приоритетность: "  HorizontalContentAlignment="Left" />
+                                    <Label Grid.Row="3"  Content="{Binding Priority}"/>
 								</Grid>
 							</Border>
 
 							<Border Grid.RowSpan="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
-								<Label x:Name="discontAmountLabel"/>
-							</Border>
+                                <Label Content="{Binding Sale}" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="28"/>
+                            </Border>
 						</Grid>
 					</Border>
 				</DataTemplate>
