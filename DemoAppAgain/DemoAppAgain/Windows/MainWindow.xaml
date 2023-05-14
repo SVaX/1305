@@ -36,14 +36,14 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 
-		<ComboBox x:Name="agentSortComboBox" Grid.Row="0" Grid.Column="3"/>
-		<ComboBox x:Name="agentTypeFilterComboBox" Grid.Row="0" Grid.Column="2"/>
+		<ComboBox x:Name="agentSortComboBox" Grid.Row="0" Grid.Column="3" SelectionChanged="agentSortComboBox_SelectionChanged"/>
+		<ComboBox x:Name="agentTypeFilterComboBox" Grid.Row="0" Grid.Column="2" SelectionChanged="agentTypeFilterComboBox_SelectionChanged"/>
 
 		<TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
         <Button x:Name="addButton" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Hidden"/>
 
-        <ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" d:ItemsSource="{d:SampleData}" SelectionMode="Extended">
+        <ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
             <ListView.ItemTemplate>
                 <DataTemplate>
 					<Border BorderBrush="Black" BorderThickness="1" Style="{StaticResource mainBorder}">
@@ -66,9 +66,13 @@
 										<RowDefinition Height="2*"/>
 										<RowDefinition Height="2*"/>
 									</Grid.RowDefinitions>
-									<Label Grid.Row="0" HorizontalContentAlignment="Left" Content="{Binding CompanyType.CompanyTypeId}"/>
-									<Label Grid.Row="0" Content="{Binding Name}"/>
-                                    <Label Grid.Row="1"  HorizontalContentAlignment="Left"  Content="{Binding TotalImplementation}" />
+									<Label Grid.Row="0" HorizontalContentAlignment="Left" Content="{Binding CompanyType.Name}"/>
+                                    <Label Grid.Row="0" Content="{Binding Name}"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <Label HorizontalContentAlignment="Left"  Content="{Binding TotalImplementation}"/>
+                                        <Label Content="продаж за год"/>
+                                    </StackPanel>
+                                    
                                     <Label Grid.Row="2"  HorizontalContentAlignment="Left"  Content="{Binding Phone}"/>
                                     <Label Grid.Row="3" Content="Приоритетность: "  HorizontalContentAlignment="Left" />
                                     <Label Grid.Row="3"  Content="{Binding Priority}"/>
