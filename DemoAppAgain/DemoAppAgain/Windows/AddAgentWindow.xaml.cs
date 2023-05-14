@@ -17,19 +17,16 @@ using System.Windows.Shapes;
 namespace DemoAppAgain.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для EditAgentWindow.xaml
+    /// Логика взаимодействия для AddAgentWindow.xaml
     /// </summary>
-    public partial class EditAgentWindow : Window
+    public partial class AddAgentWindow : Window
     {
         DemoAgainDbContext db = new DemoAgainDbContext();
         Agent _currentAgent = new Agent();
-        public EditAgentWindow(Agent agent)
+        public AddAgentWindow()
         {
             InitializeComponent();
-
-            _currentAgent = agent;
             InitTypes();
-            InitFields();
         }
 
         public void InitTypes()
@@ -39,20 +36,6 @@ namespace DemoAppAgain.Windows
                 comptypeComboBox.Items.Add(cp.Name);
             }
             comptypeComboBox.SelectedIndex = 0;
-        }
-
-        public void InitFields()
-        {
-            nameTextBox.Text = _currentAgent.Name;
-            emailTextBox.Text = _currentAgent.Email;
-            phoneTextBox.Text = _currentAgent.Phone;
-            addressTextBox.Text = _currentAgent.LegalAddress;
-            priorityTextBox.Text = _currentAgent.Priority.ToString();
-            principalTextBox.Text = _currentAgent.Principal;
-            tinTextBox.Text = _currentAgent.Tin;
-            kppTextBox.Text = _currentAgent.Kpp;
-            totalTextBox.Text = _currentAgent.TotalImplementation.ToString();
-            comptypeComboBox.SelectedItem = _currentAgent.CompanyType.Name;
         }
 
         public static bool ValidateTextBoxes(TextBox[] textBoxes)
@@ -75,21 +58,7 @@ namespace DemoAppAgain.Windows
             this.Close();
         }
 
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (_currentAgent.TotalImplementation != 0)
-            {
-                MessageBox.Show("Нельзя удалить агента, у которого есть продажи");
-                return;
-            }
-
-            db.Entry(_currentAgent).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-            db.SaveChanges();
-            MessageBox.Show("Агент успешно удален!");
-            backButton_Click(sender, e);
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
             var textBoxes = new TextBox[]
             {
@@ -132,7 +101,7 @@ namespace DemoAppAgain.Windows
             }
             int sale = 0;
 
-            foreach(var sal in db.Sales)
+            foreach (var sal in db.Sales)
             {
                 if (Convert.ToInt32(totalTextBox.Text) < sal.TotalImplementation)
                 {
@@ -154,9 +123,9 @@ namespace DemoAppAgain.Windows
             _currentAgent.CompanyType = compType;
             _currentAgent.Sale = sale;
 
-            db.Entry(_currentAgent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.Agents.Add(_currentAgent);
             db.SaveChanges();
-            MessageBox.Show("Агент успешно изменен!");
+            MessageBox.Show("Агент успешно добавлен!");
             backButton_Click(sender, e);
         }
 
@@ -187,10 +156,7 @@ namespace DemoAppAgain.Windows
                 System.IO.File.Copy(filename, parentDirName, true);
 
                 _currentAgent.Logo = ofd.SafeFileName;
-
-                db.Entry(_currentAgent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                db.SaveChanges();
-                MessageBox.Show("Картинка успешно изменена!");
+                MessageBox.Show("Картинка добавлена!");
             }
         }
     }

@@ -41,7 +41,7 @@
 
 		<TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextChanged="searchTextBox_TextChanged"/>
         <Button x:Name="changePriorityButton" Content="Изменить приоритет" Grid.Row="0" Grid.Column="4" Visibility="Hidden" Click="changePriorityButton_Click"/>
-        <Button x:Name="addButton" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Visible"/>
+        <Button x:Name="addButton" Click="addButton_Click" Content="Добавить агента" Grid.Row="0" Grid.Column="5" Visibility="Visible"/>
 
         <ListView Grid.ColumnSpan="6" Grid.Row="1" x:Name="agentsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" SelectionMode="Extended" SelectionChanged="agentsList_SelectionChanged" MouseDoubleClick="agentsList_MouseDoubleClick">
             <ListView.ItemTemplate>

@@ -212,5 +212,12 @@ namespace DemoAppAgain
 			window.Show();
 			this.Close();
         }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+			var window = new AddAgentWindow();
+			window.Show();
+			this.Close();
+        }
     }
 }
