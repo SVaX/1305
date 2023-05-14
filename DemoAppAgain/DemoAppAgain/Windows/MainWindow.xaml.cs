@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoAppAgain.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,10 @@ namespace DemoAppAgain
 
 			foreach (var ag in agents)
 			{
-				ag.Logo = ag.Logo.Replace("\\agents\\", "");
+				ag.Logo = ag.Logo.Replace("/Resources/", "");
 				ag.Logo = $"/Resources/{ag.Logo}";
+				db.Entry(ag).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+				db.SaveChanges();
 
 				foreach (var ct in db.CompanyTypes)
 				{
@@ -48,6 +51,7 @@ namespace DemoAppAgain
 
 		private void InitList()
         {
+			agents = db.Agents.ToList();
 			agentsList.ItemsSource = agents;
 		}
 
@@ -110,7 +114,6 @@ namespace DemoAppAgain
 					}
 				default:
                     {
-						agents = db.Agents.ToList();
 						agentsList.ItemsSource = agents;
 						break;
 					}
@@ -136,6 +139,78 @@ namespace DemoAppAgain
                     }
 			}
 			agentSortComboBox_SelectionChanged(sender, e);
+        }
+
+        private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+			var foundAgents = agents.Where(x => x.Name.ToLower().Contains(searchTextBox.Text.ToLower())).ToList();
+			agentsList.ItemsSource = foundAgents;
+        }
+
+        private void agentsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+			if (agentsList.SelectedItems.Count > 1)
+            {
+				changePriorityButton.Visibility = Visibility.Visible;
+            }
+			else
+            {
+				changePriorityButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void changePriorityButton_Click(object sender, RoutedEventArgs e)
+        {
+			var priority = 0;
+			var highestPriority = 0;
+			var window = new ChangePriorityModalWindow();
+			foreach (var ag in agents)
+			{
+				for (var i = 0; i < agentsList.SelectedItems.Count; i++)
+				{
+					if (ag == agentsList.SelectedItems[i] as Agent)
+					{
+						if (ag.Priority > highestPriority)
+                        {
+							highestPriority = ag.Priority;
+                        }
+					}
+				}
+			}
+			window.priorityTextBox.Text = highestPriority.ToString();
+
+			if (window.ShowDialog() == true)
+            {
+				priority = Convert.ToInt32(window.priorityTextBox.Text);
+				foreach (var ag in agents)
+                {
+					for (var i = 0; i < agentsList.SelectedItems.Count; i++)
+                    {
+						if (ag == agentsList.SelectedItems[i] as Agent)
+                        {
+                            ag.Priority = priority;
+							db.Entry(ag).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+							db.SaveChanges();
+                        }
+                    }
+                }
+            }
+			else
+            {
+
+				return;
+            }
+
+			changePriorityButton.Visibility = Visibility.Hidden;
+			InitList();
+			agentsList.SelectedIndex = 0;
+        }
+
+        private void agentsList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+			var window = new EditAgentWindow(agentsList.SelectedItem as Agent);
+			window.Show();
+			this.Close();
         }
     }
 }
